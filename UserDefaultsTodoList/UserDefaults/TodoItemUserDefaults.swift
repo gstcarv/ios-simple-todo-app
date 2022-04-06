@@ -48,4 +48,21 @@ class TodoItemUserDefaults {
         return [];
     }
     
+    func delete(index: Int) {
+        do {
+            
+            var todos = self.getAll()
+            todos.remove(at: index)
+            
+            // Encodes array to JSON
+            let encoder = JSONEncoder()
+            let encodedTodos = try encoder.encode(todos)
+            
+            // Save todos on current state and on user defaults
+            UserDefaults.standard.set(encodedTodos, forKey: todosKey)
+        } catch {
+            print("Error occurs deleting todo")
+        }
+    }
+    
 }
