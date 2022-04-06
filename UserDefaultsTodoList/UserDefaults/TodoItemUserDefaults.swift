@@ -15,7 +15,7 @@ class TodoItemUserDefaults {
         do {
             
             var todos = self.getAll()
-            todos.append(item)
+            todos.insert(item, at: 0)
             
             // Encodes array to JSON
             let encoder = JSONEncoder()
@@ -34,10 +34,10 @@ class TodoItemUserDefaults {
             if let savedTodos = UserDefaults.standard.data(forKey: todosKey) {
                 
                 // Decode all JSON todos to array
-                let decoder = JSONDecoder();
+                let decoder = JSONDecoder()
                 let decodedTodos = try decoder.decode([TodoItem].self, from: savedTodos)
                 
-                return decodedTodos;
+                return decodedTodos
             } else {
                 return []
             }
