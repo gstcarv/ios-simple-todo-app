@@ -87,7 +87,7 @@
         <!--Create new todo-->
         <scene sceneID="jgh-ns-CRF">
             <objects>
-                <viewController id="ePD-KJ-RQn" sceneMemberID="viewController">
+                <viewController id="ePD-KJ-RQn" customClass="CreateTodoViewController" customModule="UserDefaultsTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aT4-Hn-zUk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
                                                 <color key="textColor" red="0.70196078429999997" green="0.72941176470000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the todo name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Iq-MH-NPk" userLabel="Todo Field">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the todo name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Iq-MH-NPk" userLabel="Todo Field">
                                                 <rect key="frame" x="0.0" y="20" width="264.5" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="leo-QH-6l7"/>
@@ -120,6 +120,10 @@
                                                         <color key="value" red="0.70196078429999997" green="0.72941176470000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="asdasd:" destination="8kS-wk-JpO" eventType="editingDidEnd" id="fAh-As-qvM"/>
+                                                    <action selector="onChangeTodoTitle:" destination="ePD-KJ-RQn" eventType="editingChanged" id="pML-t4-qID"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -137,6 +141,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create todo" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="onAddTodo:" destination="ePD-KJ-RQn" eventType="touchUpInside" id="5Mp-hO-AZU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hZG-Ax-oWg"/>
@@ -151,8 +158,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create new todo" largeTitleDisplayMode="never" id="k4w-O1-Xn2"/>
+                    <connections>
+                        <outlet property="addTodoButton" destination="0LF-qf-OXm" id="Vkt-GS-LP3"/>
+                        <outlet property="todoTitleField" destination="8Iq-MH-NPk" id="IxU-Hy-sGe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9B-5r-Pir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8kS-wk-JpO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1350.7246376811595" y="18.75"/>
         </scene>
