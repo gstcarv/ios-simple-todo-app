@@ -30,7 +30,8 @@ class CreateTodoViewController: UIViewController {
         todoTitleField.text = ""
         handleValidateTodoData()
         
-        print(todoUserDefaults.getAll())
+        // Back to todos screen
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onChangeTodoTitle(_ sender: UITextField) {
