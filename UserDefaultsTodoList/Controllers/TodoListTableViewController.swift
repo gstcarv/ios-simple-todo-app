@@ -14,11 +14,13 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.reloadData()
+    }
+    
+    private func reloadData () {
         todos = todosUserDefaults.getAll()
         tableView.reloadData()
     }
@@ -37,7 +39,16 @@ class TodoListTableViewController: UITableViewController {
         
         let todo = todos[indexPath.row];
         
-        cell.titleLabel.text = todo.title;
+        let cellText = NSAttributedString(
+            string: todo.title,
+            attributes: todo.completed
+                ? [.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+                : [.strikethroughStyle: NSUnderlineStyle.thick]
+        )
+        
+        cell.titleLabel.attributedText = cellText
+        cell.statusSwitch.tag = indexPath.row
+        cell.statusSwitch.isOn = todo.completed
         
         return cell
     }
@@ -57,5 +68,18 @@ class TodoListTableViewController: UITableViewController {
         
     }
     
+    @IBAction func onChangeTodoState(_ sender: UISwitch) {
+        // Get working todo index
+        let todoIndex = sender.tag;
+        
+        // Toggle todo completed
+        let todo = todos[todoIndex]
+        todo.completed = !todo.completed
+        todosUserDefaults.updateTodo(index: todoIndex, item: todo)
+        
+        // Reload todo row
+        todos = todosUserDefaults.getAll()
+        tableView.reloadRows(at: [IndexPath(row: todoIndex, section: 0)], with: .automatic)
+    }
 }
 

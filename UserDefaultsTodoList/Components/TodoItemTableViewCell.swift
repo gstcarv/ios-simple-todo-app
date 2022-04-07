@@ -11,6 +11,7 @@ class TodoItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var statusSwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
