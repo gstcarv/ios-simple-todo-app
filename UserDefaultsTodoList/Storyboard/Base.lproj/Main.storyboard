@@ -11,7 +11,7 @@
         <scene sceneID="KP8-Z6-Wau">
             <objects>
                 <tableViewController id="06g-Pz-7Hu" customClass="TodoListTableViewController" customModule="UserDefaultsTodoList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="d5P-vL-PIo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="d5P-vL-PIo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -31,13 +31,51 @@
                             <color key="backgroundColor" red="0.98431372640000003" green="0.98431372640000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="Fmc-bW-fW6" userLabel="Todo Cell">
-                                <rect key="frame" x="0.0" y="94.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="Fmc-bW-fW6" userLabel="Todo Cell" customClass="TodoItemTableViewCell" customModule="UserDefaultsTodoList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="94.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fmc-bW-fW6" id="Vk2-Q9-rCc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-hA-T6D" userLabel="CellContainer">
+                                            <rect key="frame" x="25" y="5" width="364" height="70"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-Ig-n4s">
+                                                    <rect key="frame" x="290" y="19.5" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My todo item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZI-MS-xxo">
+                                                    <rect key="frame" x="25" y="24.5" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.18823529410000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6TA-Ig-n4s" secondAttribute="trailing" constant="25" id="4b1-X0-N59"/>
+                                                <constraint firstItem="6TA-Ig-n4s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ZI-MS-xxo" secondAttribute="trailing" constant="8" symbolic="YES" id="9Mb-qL-MVv"/>
+                                                <constraint firstItem="6ZI-MS-xxo" firstAttribute="leading" secondItem="ncm-hA-T6D" secondAttribute="leading" constant="25" id="DEh-da-DNy"/>
+                                                <constraint firstItem="6TA-Ig-n4s" firstAttribute="centerY" secondItem="ncm-hA-T6D" secondAttribute="centerY" id="cVT-8f-97U"/>
+                                                <constraint firstItem="6ZI-MS-xxo" firstAttribute="centerY" secondItem="ncm-hA-T6D" secondAttribute="centerY" id="lHL-VV-GJG"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ncm-hA-T6D" secondAttribute="trailing" constant="25" id="1C4-2I-DA0"/>
+                                        <constraint firstAttribute="bottom" secondItem="ncm-hA-T6D" secondAttribute="bottom" constant="5" id="43J-YQ-e2r"/>
+                                        <constraint firstItem="ncm-hA-T6D" firstAttribute="centerY" secondItem="Vk2-Q9-rCc" secondAttribute="centerY" id="hEQ-ae-7rf"/>
+                                        <constraint firstItem="ncm-hA-T6D" firstAttribute="leading" secondItem="Vk2-Q9-rCc" secondAttribute="leading" constant="25" id="ocT-yz-Dkj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellView" destination="ncm-hA-T6D" id="aXz-DA-isf"/>
+                                    <outlet property="titleLabel" destination="6ZI-MS-xxo" id="46h-od-ETe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

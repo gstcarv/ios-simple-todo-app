@@ -14,6 +14,7 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -26,14 +27,17 @@ class TodoListTableViewController: UITableViewController {
         return 1
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todosUserDefaults.getAll().count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoItemTableViewCell
         
-        cell.textLabel?.text = todos[indexPath.row].title
+        let todo = todos[indexPath.row];
+        
+        cell.titleLabel.text = todo.title;
         
         return cell
     }
