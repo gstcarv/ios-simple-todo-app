@@ -34,6 +34,11 @@ class CreateTodoViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    
     @IBAction func onChangeTodoTitle(_ sender: UITextField) {
         handleValidateTodoData()
     }
