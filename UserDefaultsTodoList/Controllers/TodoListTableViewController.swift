@@ -64,6 +64,7 @@ class TodoListTableViewController: UITableViewController {
             todos = todosUserDefaults.getAll()
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .automatic)
         }
         
     }
