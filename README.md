@@ -14,9 +14,9 @@
   <img src="https://img.shields.io/badge/iOS-12%2B-brightgreen" />
 </div>
 
-Simple native IOS todo list built with Swift + Storyboard with the purpose to learn about layout creation and storing data with UserDefaults.
+Simple native IOS todo list built with Swift + Storyboard with the purpose to learn about layout creation and data storing with UserDefaults.
 
-The application persists on UserDefaults the todo itens created by the user and they can be changed status do completed or removed when swipe right
+The application persists on UserDefaults the todo items created by the user and they can be changed status do completed or removed when swipe right
 
 # Preview
 
